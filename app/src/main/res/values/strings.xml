@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SCRM</string>
+    <string name="ver_detalle">Ver detalle</string>
+    <string name="multar">Multar</string>
+    <string name="solucionar">Solucionar</string>
+    <string name="title_activity_menu">menu</string>
+    <string name="elija_una_opcion">Elija una opcion</string>
+</resources>

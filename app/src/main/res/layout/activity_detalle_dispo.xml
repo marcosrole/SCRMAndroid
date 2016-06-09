@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="marcos.scrm.DetalleDispoActivity">
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_above="@+id/btnSalir"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="24dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/etID_dis"
+        android:hint="ID Dispo"
+        android:layout_above="@+id/chart"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="24dp"
+        android:layout_toStartOf="@+id/btnBuscar"
+        android:layout_toLeftOf="@+id/btnBuscar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalles del Dispositivo: "
+        android:id="@+id/textView16"
+        android:textSize="15dp"
+        android:textColor="#0a12f6"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/btnAtras"
+        android:layout_alignEnd="@+id/btnAtras" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chart"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:id="@+id/linearLayout6">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayout7"
+        android:layout_alignBottom="@+id/etID_dis"
+        android:layout_below="@+id/textView16">
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salir"
+        android:id="@+id/btnSalir"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Atras"
+        android:id="@+id/btnAtras"
+        android:background="@drawable/greenbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/linearLayout7"
+        android:layout_toEndOf="@+id/linearLayout7" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/linearLayout6"
+        android:layout_below="@+id/btnLimpiar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/tvError"
+            android:textSize="15sp"
+            android:textColor="@color/colorAccent"
+            android:layout_alignTop="@+id/linearLayout6"
+            android:layout_toRightOf="@+id/btnAtras"
+            android:layout_toEndOf="@+id/btnAtras"
+            android:layout_gravity="center_horizontal|bottom" />
+    </FrameLayout>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnHsIni"
+        android:src="@drawable/clockstart"
+        android:layout_alignTop="@+id/btnBuscar"
+        android:layout_toRightOf="@+id/btnBuscar"
+        android:layout_toEndOf="@+id/btnBuscar" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnHsFin"
+        android:src="@drawable/clockend"
+        android:layout_alignBottom="@+id/btnBuscar"
+        android:layout_alignLeft="@+id/btnHsIni"
+        android:layout_alignStart="@+id/btnHsIni" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvFechaIni"
+        android:layout_above="@+id/etID_dis"
+        android:layout_toRightOf="@+id/btnHsIni"
+        android:layout_toEndOf="@+id/btnHsIni"
+        android:textColor="#20c42e" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvFechaFin"
+        android:textColor="#ff0000"
+        android:layout_above="@+id/btnLimpiar"
+        android:layout_toRightOf="@+id/btnHsFin"
+        android:layout_toEndOf="@+id/btnHsFin" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvHsIni"
+        android:textColor="#20c42e"
+        android:layout_alignTop="@+id/tvFechaIni"
+        android:layout_toRightOf="@+id/tvFechaIni"
+        android:layout_toEndOf="@+id/tvFechaIni" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvHsFin"
+        android:textColor="#ff0000"
+        android:layout_below="@+id/btnHsIni"
+        android:layout_toRightOf="@+id/tvFechaFin"
+        android:layout_toEndOf="@+id/tvFechaFin" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnBuscar"
+        android:src="@android:drawable/ic_search_category_default"
+        android:layout_alignBottom="@+id/etID_dis"
+        android:layout_toLeftOf="@+id/linearLayout6"
+        android:layout_toStartOf="@+id/linearLayout6" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnLimpiar"
+        android:src="@drawable/clean"
+        android:layout_below="@+id/tvHsFin"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/chart"
+        android:layout_toRightOf="@+id/btnSalir"
+        android:layout_alignRight="@+id/btnLimpiar"
+        android:layout_alignEnd="@+id/btnLimpiar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|top">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Datos censados:"
+                android:id="@+id/textView34"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="39dp"
+                android:layout_marginStart="39dp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha:   "
+                android:id="@+id/textView35"
+                android:layout_centerVertical="true"
+                android:layout_alignLeft="@+id/textView34"
+                android:layout_alignStart="@+id/textView34"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rango horario:  "
+                android:id="@+id/textView36"
+                android:textStyle="italic"
+                android:layout_alignParentBottom="true"
+                android:layout_alignLeft="@+id/textView35"
+                android:layout_alignStart="@+id/textView35" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="29/04/2015"
+                android:id="@+id/tvFechaCensado"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/textView35"
+                android:layout_toEndOf="@+id/textView35" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12:12:12 - 12:12:12"
+                android:id="@+id/tvhsCensado"
+                android:layout_below="@+id/tvFechaCensado"
+                android:layout_toRightOf="@+id/textView36"
+                android:layout_toEndOf="@+id/textView36" />
+        </RelativeLayout>
+    </FrameLayout>
+
+</RelativeLayout>
