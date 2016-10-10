@@ -423,7 +423,7 @@ public class DetalleDispoActivity extends AppCompatActivity {
                             Gson gson = new GsonBuilder().create();
                             try{
                                 JSONObject jsono = new JSONObject(status.getResult());
-                                if(jsono.getString("error").equals("-3")){
+                                if(!jsono.getString("error").equals("0")){
                                     showToast(jsono.getString("descripcion"));
                                     DetalleDispoActivity.this.runOnUiThread(new Runnable() {
                                         public void run() {

@@ -190,18 +190,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Datos censados:"
-                android:id="@+id/textView34"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="39dp"
-                android:layout_marginStart="39dp"
-                android:textStyle="bold|italic" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="Fecha:   "
                 android:id="@+id/textView35"
                 android:layout_centerVertical="true"
@@ -231,9 +219,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Datos censados:"
+                android:id="@+id/textView34"
+                android:layout_marginLeft="21dp"
+                android:layout_marginStart="21dp"
+                android:textStyle="bold|italic"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="12:12:12 - 12:12:12"
                 android:id="@+id/tvhsCensado"
-                android:layout_below="@+id/tvFechaCensado"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:layout_alignParentBottom="true"
                 android:layout_toRightOf="@+id/textView36"
                 android:layout_toEndOf="@+id/textView36" />
         </RelativeLayout>

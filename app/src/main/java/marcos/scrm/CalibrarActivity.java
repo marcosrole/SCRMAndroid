@@ -24,6 +24,7 @@ import org.json.JSONObject;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.TimeZone;
 
 import clases.Dispositivo;
@@ -397,46 +398,44 @@ public class CalibrarActivity extends AppCompatActivity {
                             JSONArray jsonarray = jsono.getJSONArray("rows");
 
                             //Dos pasos:
-                            //1 : Verificar diferencia con primer elemento con la fecha de hoy
-                            //2 : Veririfcar diferencia entre elementos
+                            //1 : Verificar diferencia para cada json (o cada registro)
 
-                            JSONObject jsonobjectINICIAL = jsonarray.getJSONObject(0);
-                            String hsINICIAL = jsonobjectINICIAL.getString("fechahs");
-                            long diferenciaHora = restarHs(hsINICIAL,hsHOY);
-                            long toleracina = envioDatosDispo*2*60;
-                            if(diferenciaHora<toleracina){ //corroborar diferencia de hs con el DOBLE del envioDatos Dispositivo (en segundo)
-                                int i=0;
-                                boolean bandera = false;
-                                while(!bandera && i<jsonarray.length()-1){
-                                    JSONObject jsonobject1 = jsonarray.getJSONObject(i);
-                                    String fechahs1 = jsonobject1.getString("fechahs");
+                            boolean bandera = false;
+                            for (int i = 0; (i < jsonarray.length() && !bandera); i++) {
+                                JSONObject jsonobject = jsonarray.getJSONObject(i);
+                                String db = jsonobject.getString("db");
+                                String distancia = jsonobject.getString("distancia");
+                                String diferencia = jsonobject.getString("diferencia");
 
-                                    JSONObject jsonobject2 = jsonarray.getJSONObject(i+1);
-                                    String fechahs2 = jsonobject2.getString("fechahs");
+                                int diferenciaEntero=Integer.parseInt(diferencia.toString());
+                                int tolerancia = envioDatosDispo*4*(i+1);
 
-                                    if(restarHs(fechahs1,fechahs2)<envioDatosDispo*2*60){ //corroborar diferencia de hs
-
-                                        i++;
-                                        dbProm+=Integer.parseInt(jsonobject1.getString("db").toString());
-                                        distProm+=Integer.parseInt(jsonobject1.getString("distancia").toString());
-                                    }else bandera=true;
+                                if(diferenciaEntero < tolerancia){
+                                    dbProm+=Integer.parseInt(db.toString());
+                                    distProm+=Integer.parseInt(distancia.toString());
+                                }else{
+                                    bandera=true;
+                                    Toast msj = new Toast(CalibrarActivity.this);
+                                    msj.makeText(CalibrarActivity.this,"Error: Los datos censados no se encuentran actualizados",Toast.LENGTH_SHORT).show();
+                                    //tvError.setText("Conecte el dispositivo y espere " + tiempoEspera + " minutos aproximadamente");
                                 }
-                                if(!bandera){
-                                    dbProm=dbProm/i;
-                                    distProm=distProm/i;
-
-                                    DecimalFormat twoDForm = new DecimalFormat("#");
-                                    dbProm= Double.valueOf(twoDForm.format(dbProm));
-                                    distProm= Double.valueOf(twoDForm.format(distProm));
-
-                                    edDB.setText(String.valueOf(dbProm));
-                                    edDistancia.setText(String.valueOf(distProm));
-
-                                }
-                            }else{
-                                //Toast msjmakeText(CalibrarActivity.this,"Los datos censados no se encuentran actualizados", Toast.LENGTH_SHORT).show();
-                                tvError.setText("Conecte el dispositivo y espere " + tiempoEspera + " minutos aproximadamente");
                             }
+
+                            if(!bandera){
+                                dbProm=dbProm/cantRegistros;
+                                distProm=distProm/cantRegistros;
+
+                                DecimalFormat twoDForm = new DecimalFormat("#");
+                                dbProm= Double.valueOf(twoDForm.format(dbProm));
+                                distProm= Double.valueOf(twoDForm.format(distProm));
+
+                                edDB.setText(String.valueOf(dbProm));
+                                edDistancia.setText(String.valueOf(distProm));
+                            }
+
+
+
+
                             progressPromediar.dismiss();
                         }
                     }catch (Exception e){
@@ -504,7 +503,7 @@ public class CalibrarActivity extends AppCompatActivity {
                                     // JSONArray jsonarray = jsono.getJSONArray("rows");
                                     String cantidad = jsono.getString("total");
                                     if(jsono.getString("total").equals("0")){
-                                        showToast(jsono.getString("descripcion"));
+                                        //showToast(jsono.getString("descripcion"));
                                         CalibrarActivity.this.runOnUiThread(new Runnable() {
                                             public void run() {
                                                 tvSucursal.setText("");
@@ -520,7 +519,7 @@ public class CalibrarActivity extends AppCompatActivity {
                                         JSONArray jsonarray = jsono.getJSONArray("rows");
                                         final JSONObject jsonobject = jsonarray.getJSONObject(0);
 
-                                        showToast(jsono.getString("descripcion"));
+                                        //showToast(jsono.getString("descripcion"));
                                         CalibrarActivity.this.runOnUiThread(new Runnable() {
                                             public void run() {
                                                 histoAsigObj.setId_dis(id_dis);
