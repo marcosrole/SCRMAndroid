@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SCRM.iml" filepath="$PROJECT_DIR$/SCRM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SCRM_Android.iml" filepath="$PROJECT_DIR$/SCRM_Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
