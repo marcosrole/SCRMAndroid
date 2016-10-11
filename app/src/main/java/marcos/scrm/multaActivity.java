@@ -158,6 +158,7 @@ public class multaActivity extends AppCompatActivity {
                                         .appendQueryParameter("observacion", etObservacion.getText().toString())
                                         .appendQueryParameter("id_ins", id_ins)
                                         .appendQueryParameter("id_suc", id_suc)
+                                        .appendQueryParameter("id_dis", id_dis)
                                         .appendQueryParameter("id_ala", id_ala);
 
                                 String myUrl = builder.build().toString();

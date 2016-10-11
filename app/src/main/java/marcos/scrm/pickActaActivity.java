@@ -105,7 +105,7 @@ public class pickActaActivity extends AppCompatActivity {
                                         if(jsonobject.getString("observacion").equals(""))observacion="";
                                         else observacion = jsonobject.getString("observacion");
 
-                                        String hs = jsonobject.getString("hs") + "hs";
+                                        String hs = jsonobject.getString("hs");
                                         String fecha = jsonobject.getString("fecha");
                                         String fechahs = fecha + "    -    " + hs + " hs.";
 

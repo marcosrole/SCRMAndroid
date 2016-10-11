@@ -152,8 +152,7 @@ public class pickDispositivoActivity extends AppCompatActivity {
                         .authority(ConfigServidor.IP)
                         .appendPath(ConfigServidor.URL)
                         .appendPath("dispositivo")
-                        .appendPath("listarDispositivo.php")
-                        .appendQueryParameter("asignados", "0");
+                        .appendPath("listarDispositivo.php");
                 String myUrl = builder.build().toString();
                 client.excecute(myUrl);
             }
