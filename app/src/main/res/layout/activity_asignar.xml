@@ -217,20 +217,6 @@
             android:src="@android:drawable/ic_menu_search" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/tvError"
-        android:textSize="12sp"
-        android:textColor="@color/colorAccent"
-        android:layout_below="@+id/textView13"
-        android:layout_marginTop="15dp"
-        android:layout_alignRight="@+id/btnSiguiente"
-        android:layout_alignEnd="@+id/btnSiguiente"
-        android:layout_alignLeft="@+id/btnSalir"
-        android:layout_alignStart="@+id/btnSalir"
-        android:text="" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -269,27 +255,28 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout8">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Atras"
-            android:id="@+id/btnAtras"
-            android:background="@drawable/greenbutton"
-            android:layout_alignTop="@+id/btnSiguiente"
-            android:layout_alignRight="@+id/tvCoorLat"
-            android:layout_marginLeft="10dp"
-            android:layout_alignEnd="@+id/tvCoorLat" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Siguiente"
-            android:id="@+id/btnSiguiente"
-            android:background="@drawable/greenbutton"
-            android:layout_marginLeft="10dp"
-            android:layout_alignTop="@+id/linearLayout8"
-            android:layout_alignRight="@+id/linearLayout4"
-            android:layout_alignEnd="@+id/linearLayout4" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Atras"
+        android:id="@+id/btnAtras"
+        android:background="@drawable/greenbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/btnCalibrarDispo"
+        android:layout_toStartOf="@+id/btnCalibrarDispo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Siguiente"
+        android:id="@+id/btnSiguiente"
+        android:background="@drawable/greenbutton"
+        android:layout_marginLeft="22dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/btnAtras"
+        android:layout_toEndOf="@+id/btnAtras"
+        android:layout_marginStart="22dp" />
 
 </RelativeLayout>

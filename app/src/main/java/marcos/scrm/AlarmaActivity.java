@@ -1,12 +1,14 @@
 package marcos.scrm;
 
 import android.app.AlertDialog;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,6 +41,7 @@ public class AlarmaActivity extends AppCompatActivity {
     String id_ins, id_AsiIns;
     Button btnAtras;
     General archivoTXT = new General();
+    //final Intent modIntent = new Intent(super.getIntent());
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,23 @@ public class AlarmaActivity extends AppCompatActivity {
         btnAtras = (Button)findViewById(R.id.btnAtras);
 
         View v;
+
+
+        Bundle extras = getIntent().getExtras();
+        Intent modIntent = new Intent();
+        if (extras != null) {
+            if(extras.get("notificationID") != null){
+                 //Eliminar Notificacion de la alarma
+                NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                // Cancelamos la Notificacion que hemos comenzado
+                //nm.cancel(Integer.parseInt(getIntent().getExtras().getString("notificationID")));
+                nm.cancel(1);
+            }
+        }
+
+
+
+
 
         archivoTXT.recuperar_id_ins("attributes_usr.txt");
         id_ins=archivoTXT.getId_ins();

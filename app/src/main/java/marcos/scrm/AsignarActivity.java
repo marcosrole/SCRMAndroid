@@ -244,12 +244,14 @@ public class AsignarActivity extends AppCompatActivity {
         boolean valido=true;
         if((tvSucursal.getText().toString().equals("") || tvEmpresa.getText().toString().equals(""))){
             valido=false;
-            tvError.setText("Seleccione una sucursal");
+            Toast msj = new Toast(this);
+            msj.makeText(AsignarActivity.this, "Seleccione una sucursal", Toast.LENGTH_SHORT).show();
             btnBuscarSuc.requestFocus();
         }
             if((mac.equals("") || id_dis.equals(""))){
                 valido=false;
-                tvError.setText("Valide un dispositivo");
+                Toast msj = new Toast(this);
+                msj.makeText(AsignarActivity.this, "Valide un dispositivo", Toast.LENGTH_SHORT).show();
                 etID_dis.requestFocus();
             }
 
