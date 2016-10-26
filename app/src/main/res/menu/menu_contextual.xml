@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/mcSolucionada"
+        android:title="Alarma solucionada">
+    </item>
+    <item
         android:id="@+id/mcVerDetalle"
         android:title="@string/ver_detalle">
     </item>
